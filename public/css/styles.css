@@ -1,11 +1,14 @@
 /* override bootstrap styles */
 @import url('http://fonts.googleapis.com/css?family=Oswald:300,400:latin,latin-ext');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 
 .navbar-form input, .form-inline input {
   width:auto;
 }
 
 body {
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding-top:50px;
   color:#646464;
   background-color:#efefef;
@@ -27,8 +30,13 @@ footer {
 
 #masthead {
   min-height:199px;
-  background-color:#000044;
+  background-color:#6464cc;
   color:#aaaacc;
+}
+.customnav{
+  background-color: rgb(21, 21, 21);
+  color:#646464;
+
 }
 
 #masthead h1 {
