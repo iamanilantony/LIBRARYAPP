@@ -15,37 +15,34 @@
 	</head>
 	<body>
     <%-include('include/header')%>
-<div id="masthead">  
-  <div class="container">
-    <div class="row">
-      <div class="col-md-7">
-        <h1><%=title%>
-          <p class="lead"></p>
-        </h1>
-      </div>
-      <div class="col-md-5">
-        <div class="well well-lg"> 
-          <div class="row">
-            <div class="col-sm-12">		
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> 
-  </div><!-- /cont -->
-  
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="top-spacer"> </div>
-      </div>
-    </div> 
-  </div><!-- /cont -->
-  
-</div>
-
-
+    <div class="fullbody">
 <div class="container">
+  <div class="headerwrapper">
+     <div class="headerleft">
+          <h1>New & Trending Books Now Avaialable Online</h1>
+          <h3>Now at your finger tips</h3>
+          <button>Explore Now</button>
+     </div>
+     <div class="headerright">
+          <img class="headerimg" src="https://media.istockphoto.com/vectors/college-students-walking-to-class-at-university-building-happy-boy-vector-id1271367373?k=20&m=1271367373&s=612x612&w=0&h=JEqjsEjna3_xxGol2jCZGFLaKU7SgYCUm2GpjIT3f0U=" alt="">
+     </div>
+  </div>
+</div>
+<div class="container">
+  <h2>Books</h2>
+  <div class="cardcontainer">
+    <%for(var i=0;i<books.length;i++){%>
+    <div class="unitcard">
+      <img class="card-image" src="https://webartdevelopers.com/blog/wp-content/uploads/2021/02/profile-card-design.png" alt="">
+      <div class="card-content">
+          <h1>Harry Potter</h1>
+          <h2>Auhtor</h2>
+          <h3>Desc</h3>
+      </div>
+    </div>
+    <%}%>
+  </div>
+</div>
   <div class="row">
     
     <div class="col-md-12"> 
@@ -58,7 +55,7 @@
           <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="http://api.randomuser.me/portraits/thumb/men/58.jpg" style="width:100px;height:100px" class="img-circle"></a>
+              <a class="story-title" href="#"><img alt="" src="https://media.istockphoto.com/vectors/college-students-walking-to-class-at-university-building-happy-boy-vector-id1271367373?k=20&m=1271367373&s=612x612&w=0&h=JEqjsEjna3_xxGol2jCZGFLaKU7SgYCUm2GpjIT3f0U=" style="width:100px;height:100px" class="img-circle"></a>
             </div>
             <div class="col-md-10 col-sm-9">
               <h3><%=books[i].title%></h3>
@@ -73,7 +70,8 @@
             </div>
           </div>
           <hr>
-          <%}%>
+    <%}%>
+
           <!--/stories-->
           
           
@@ -129,7 +127,10 @@
     </div>
   </div>
 </footer>
+</div>
+
 	<!-- script references -->
+  <script src="https://kit.fontawesome.com/62f747839e.js" crossorigin="anonymous"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>
