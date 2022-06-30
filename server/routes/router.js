@@ -5,6 +5,7 @@ const services = require('../services/render')
 const router = express.Router()  
 
 router.get('/',services.homeroute)
+router.get('/singlebook/:id',services.singlebook)
 router.post('/api/books',controller.addbook)
 router.put('/api/books/:id',controller.updatebook)
 router.get('/api/books/:id',controller.findbook)

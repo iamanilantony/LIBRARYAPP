@@ -17,6 +17,7 @@ connectDB();
 //attach css js
 app.use(express.static('./public'))
 
+
 //set router
 app.use('/',require('./server/routes/router'))
 

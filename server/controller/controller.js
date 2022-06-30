@@ -42,8 +42,8 @@ if(Object.entries(req.body).length === 0){
 
 exports.findbook=(req,res) => {
     if(req.params.id){
-        const id = req.params.id;
-        LibrarySchema.findById(id)
+        const vid = req.params.id;
+        LibrarySchema.findById(vid)
             .then(data=>{
                 if(!data){
                     res.send('Id not found')
@@ -53,7 +53,8 @@ exports.findbook=(req,res) => {
                 }
             })
             .catch(err=>{
-                res.send('Error finding unique Id'+id)
+                res.send(err + vid)
+                // res.send('Error finding unique Id')
             })
     }
     else{

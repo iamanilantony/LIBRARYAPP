@@ -13,7 +13,7 @@
   margin-bottom: 10px;
 }
 .container{
-  height: 70vh;
+  height: auto;
 }
 .nav-wrapper{
   width: 60%;
@@ -105,6 +105,8 @@
 .cardcontainer{
   display: flex;
   flex-wrap: wrap;
+  /* justify-content: center; */
+  align-items: center;
 }
 .container h2{
   text-align: center;
@@ -112,12 +114,12 @@
 }
 .unitcard{
     display: flex;
-    flex-direction: column;
-    background-color: #cf9c50;
-    margin: 5px;
-    width: 300px;
-    height: 400px;
+    margin: 12px;
+    width: 45%;
+    height: 300px;
     border-radius: 10px;
+    transition: 0.5s;
+    align-items: center;
 }
 .colorside{
   color: #223344;
@@ -126,16 +128,52 @@
 }
 .card-image{
   border-radius: 20px;
-  height: 300px;
-  padding: 10px;
+  height: 80%;
+  width: 40%;
+  /* margin: 10px;   */
+  box-shadow: 2px 4px;
+
 }
 .card-content{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center;  */
+  align-items: center;  
+  margin-left: 10px;
+  color: black;
+
 }
-  
+.unitcard:hover{
+  box-shadow: 2px 4px;
+  transform: translateY(-5px)
+}
+.card-content h1{
+  font-size: 36px;
+}
+.card-content h2{
+  font-size: 26px;
+  color: gray;
+}
+.card-content h3{
+  font-size: 18px;
+  color: black;
+  background-color: gold;
+  padding: 10px;
+  border-radius: 10px;
+}
+.card-content a{
+  padding: 10px;
+  background-color: #cf9c50;
+  border: none;
+  width: 60px;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: 0.5s;
+}
+.card-content button:hover{
+  background-color: #a87e3e;
+}
+
 
 .navbar-form input, .form-inline input {
   width:auto;
@@ -151,14 +189,16 @@ body {
 h1,h2,h3,.highlight,.navbar a,#masthead h4 {
   font-family:'Oswald',arial narrow,sans-serif;
 }
+.footercontainer{
+  height: 50px;
+}
 
 footer {
-
+  width: 103%;
   margin-top:40px;
-  padding-top:40px;
+  padding-top:100px;
   padding-bottom:40px;
-  background-color:#cecece;
- 
+  background-color: #c89953; 
 }
 
 
