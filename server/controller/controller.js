@@ -1,6 +1,7 @@
-const {LibrarySchema,AuthorSchema} = require('../model/model') 
+const LibrarySchema = require('../model/model') 
+const AuthorSchema = require('../model/model') 
+
 exports.addbook=(req,res) => {
-    
     if(Object.entries(req.body).length === 0){
         res.status(400).send(`Cannot Insert Empty value ${req.query}`);
         return ;
@@ -84,5 +85,89 @@ exports.deletebook=(req,res) => {
         }
 
 exports.addauthor = (req,res) => {
+    if(Object.entries(req.query).length === 0){
+        res.status(400).send(`Cannot Insert Empty value ${req.query}`);
+        return ;
+    }
+    let author = new AuthorSchema ({
+        name : req.query.name,
+        books :req.query.books,
+        Age : req.query.age,
+        img : req.query.img,
+        desc : req.query.desc,
+    })
 
+    author
+        .save()
+        .then(data=>{
+            res.send(data)
+        })
+        .catch(err=>{
+            res.status(400).send('Error Adding data to db')
+        })
+}
+
+exports.updateauthor = (req,res) => {
+    if(Object.entries(req.query).length === 0){
+        res.status(400).send(`Cannot update Empty value ${req.query}`);
+        return ;
+    }
+    let id = req.params.id;
+    AuthorSchema.findByIdAndUpdate(id,req.query,{useFindAndModify:false})  
+        .then(data=>{
+            if(!data){
+                req.send('Id not found')
+                return;
+            }
+            else{
+                req.send('Data updated succesfuly'+data)
+            }
+        })
+        .catch(err=>{
+            req.send('Could not update data'+err)
+        })
+}
+exports.deleteauthor = (req,res) => {
+    let id = req.params.id;
+    AuthorSchema.findByIdAndDelete(id)
+    .then(data=>{
+        if(!data){
+            req.send('Id not found')
+            return;
+        }
+        else{
+            req.send('Data updated succesfuly'+data)
+        }
+    })
+    .catch(err=>{
+        req.send('Error deleting data'+err)
+    })
+}
+exports.findauthor = (req,res) => {
+    if(req.params.id){
+        let id = req.params.id;
+        AuthorSchema.findById(id)
+            .then(data=>{
+                if(!data){
+                    res.send('Id not found')
+                    return;
+                }
+                else{
+                    res.send(data)
+                }
+            })
+            .catch(err=>{
+                res.send('Error fetching single user data'+err)
+            })
+    }
+    else{
+        AuthorSchema.find()
+            .then(data=>{
+                    res.send(data)
+            })
+            .catch(err=>{
+                res.send('Error fetching data'+err)
+            })
+
+    }
 }
