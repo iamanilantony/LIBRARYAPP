@@ -1,0 +1,16 @@
+  <div class="container">
+    <h2>Authors</h2>
+    <div class="cardcontainer">
+      <%for(var i=0;i<books.length;i++){%>
+      <div class="unitcard">
+        <img class="card-image" src="<%=books[i].img%>" alt="">
+        <div class="card-content">
+            <h1><%=books[i].title%></h1>
+            <h2><%=books[i].author%></h2>
+            <h3><%=books[i].desc%></h3>
+            <a href="/singlebook/<%=books[i]._id%>">View</a>
+        </div>
+      </div>
+      <%}%>
+    </div>
+  </div>

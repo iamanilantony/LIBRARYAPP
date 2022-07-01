@@ -9,6 +9,7 @@ var schema = {
     author: String,
     img: String,
     desc: String,
+    about: String,
 }
 
 var LibrarySchema = mongoose.model('library',schema);

@@ -12,8 +12,12 @@ exports.homeroute = (req,res) => {
     
 }
 exports.singlebook = (req,res)=>{
-    axios.get('http://localhost:5000/api/books/id')
+    const id = req.params.id;
+    axios.get(`http://localhost:5000/api/books/${id}`)
         .then(response=>{
             res.render('singlebook',{book : response.data})
         })
+}
+exports.authors = (req,res) => {
+    res.render('authors')
 }

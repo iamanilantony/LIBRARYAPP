@@ -170,8 +170,26 @@
   font-size: 15px;
   transition: 0.5s;
 }
+.card-content h4{
+  font-size: 16px;
+  max-width: 30em;
+  margin-left: 20px;
+}
 .card-content button:hover{
   background-color: #a87e3e;
+}
+.cardcontainer-single{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 103.9%;
+}
+.unitcard-single{
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  width: 60%;
+  padding: 60px 0;
 }
 
 
