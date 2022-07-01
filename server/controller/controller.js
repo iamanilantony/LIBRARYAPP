@@ -1,4 +1,4 @@
-const LibrarySchema = require('../model/model') 
+const {LibrarySchema,AuthorSchema} = require('../model/model') 
 exports.addbook=(req,res) => {
     
     if(Object.entries(req.body).length === 0){
@@ -82,3 +82,7 @@ exports.deletebook=(req,res) => {
                 res.status(400).send({message:'No such user'})
             })
         }
+
+exports.addauthor = (req,res) => {
+
+}
