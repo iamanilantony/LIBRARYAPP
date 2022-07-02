@@ -6,7 +6,17 @@
           <h2><%=author.books%></h2>
           <h3><%=author.age%></h3>
           <h2><%=author.desc%></h2>
-          <a href="/">Home</a>  
+          <!-- Update Modal -->
+          <button onclick="myFunction()">Edit</button>            
+          <div id="modal" class="modal" style="display: none;">
+            <div class="modalcontent">
+            <button onclick="myFunction1()">&times;</button>
+            <h1>Modal</h1>
+            </div>
+          </div>
+            <a href="/">Home</a>  
+            <a href="/">Delete</a>  
+          </div>
       </div>
     </div>
   </div>

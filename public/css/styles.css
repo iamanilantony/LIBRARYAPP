@@ -141,7 +141,6 @@
   align-items: center;  
   margin-left: 10px;
   color: black;
-
 }
 .unitcard:hover{
   box-shadow: 2px 4px;
@@ -172,6 +171,7 @@
   border-radius: 10px;
   font-size: 15px;
   transition: 0.5s;
+  margin-right: 20px;
 }
 .card-content h4{
   font-size: 16px;
@@ -193,6 +193,26 @@
   /* align-items: center; */
   width: 60%;
   padding: 60px 0;
+}
+.buttongroup{
+  display: flex;
+}
+.card-content .modal{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0,0,0,0.4);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  left: 0;
+  top: 0;
+}
+.modalcontent{
+  width: 500px;
+  height: 700px;
+  background-color: white;
 }
 
 

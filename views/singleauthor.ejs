@@ -19,8 +19,23 @@
     <%-include('include/_singleauthor')%>                                                                                                
     <!-- <%-include('include/footer')%> -->
     </div>
-
+	
 	<!-- script references -->
+	<script>
+		var modal = document.getElementById("modal");
+		function myFunction() {
+			// alert('alert box')
+			modal.style.display = "flex";
+		}
+		function myFunction1() {
+			modal.style.display = "none";
+		}
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+		    modal.style.display = "none";
+		  }
+		}
+	</script>
   <script src="https://kit.fontawesome.com/62f747839e.js" crossorigin="anonymous"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
