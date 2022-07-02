@@ -5,9 +5,11 @@ exports.homeroute = (req,res) => {
     axios.get('http://localhost:5000/api/books')
         .then(response=>{
             res.render('index',{
-                nav : [{'links':'/author','title':'Auhtor'},{'links':'/books','title':'Books'},{'links':'/AddBook','title':'AddBook'}],
                 title : 'Library',books : response.data 
             })
+        })
+        .catch(err=>{
+            res.status(400).send({message:'error retreiving data books'+err})
         })
     
 }
@@ -17,7 +19,27 @@ exports.singlebook = (req,res)=>{
         .then(response=>{
             res.render('singlebook',{book : response.data})
         })
+        .catch(err=>{
+            res.status(400).send({message:'error retreiving data single book'+err})
+        })
 }
 exports.authors = (req,res) => {
-    res.render('authors')
+    axios.get('http://localhost:5000/api/author')
+        .then(response=>{
+            res.render('authors',{authors : response.data})
+        })
+        .catch(err=>{
+            res.status(400).send({message:'error retreiving data authors'+err})
+        })
+}
+
+exports.singleauthor = (req,res) => {
+    const id = req.params.id;
+    axios.get(`http://localhost:5000/api/author/${id}`)
+        .then(response=>{
+            res.render('singleauthor',{author : response.data})
+        })
+        .catch(err=>{
+            res.status(400).send({message:'error retreiving single author '+err})
+        })
 }

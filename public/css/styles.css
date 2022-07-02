@@ -162,6 +162,9 @@
   border-radius: 10px;
 }
 .card-content a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 10px;
   background-color: #cf9c50;
   border: none;

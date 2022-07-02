@@ -16,14 +16,14 @@ var LibrarySchema = mongoose.model('library',schema);
 
 module.exports = LibrarySchema;
 
-var authschema = {
-    name : String,
-    books : String,
-    Age : Number,
-    img : String,
-    desc : String,
-}
+// var authschema = {
+//     name : String,
+//     books : String,
+//     Age : Number,
+//     img : String,
+//     desc : String,
+// }
 
-var AuthorSchema = mongoose.model('author',authschema)
+// var AuthorSchema = mongoose.model('author',authschema)
 
-module.exports = AuthorSchema;
+// module.exports = AuthorSchema;

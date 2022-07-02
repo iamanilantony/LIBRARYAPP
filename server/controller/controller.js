@@ -1,5 +1,5 @@
 const LibrarySchema = require('../model/model') 
-const AuthorSchema = require('../model/model') 
+const AuthorSchema = require('../model/authmodel') 
 
 exports.addbook=(req,res) => {
     if(Object.entries(req.body).length === 0){
