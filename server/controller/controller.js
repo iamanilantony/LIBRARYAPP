@@ -108,23 +108,25 @@ exports.addauthor = (req,res) => {
 }
 
 exports.updateauthor = (req,res) => {
-    if(Object.entries(req.query).length === 0){
-        res.status(400).send(`Cannot update Empty value ${req.query}`);
+    if(!req.body){
+        res.status(400).send(`Cannot update Empty value ${req.query.data}`);
+        console.log(req.query.data);
+        res.send(req.body)
         return ;
     }
     let id = req.params.id;
-    AuthorSchema.findByIdAndUpdate(id,req.query,{useFindAndModify:false})  
+    AuthorSchema.findByIdAndUpdate(id,req.body,{useFindAndModify:false})
         .then(data=>{
             if(!data){
-                req.send('Id not found')
+                res.send('Id not found '+data)
                 return;
             }
             else{
-                req.send('Data updated succesfuly'+data)
+                res.send('Data updated succesfuly'+data)
             }
         })
         .catch(err=>{
-            req.send('Could not update data'+err)
+            res.send('Could not update data'+err)
         })
 }
 exports.deleteauthor = (req,res) => {
@@ -132,15 +134,15 @@ exports.deleteauthor = (req,res) => {
     AuthorSchema.findByIdAndDelete(id)
     .then(data=>{
         if(!data){
-            req.send('Id not found')
+            res.send('Id not found')
             return;
         }
         else{
-            req.send('Data updated succesfuly'+data)
+            res.send('Data updated succesfuly'+data)
         }
     })
     .catch(err=>{
-        req.send('Error deleting data'+err)
+        res.send('Error deleting data'+err)
     })
 }
 exports.findauthor = (req,res) => {

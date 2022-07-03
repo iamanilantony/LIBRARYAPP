@@ -211,9 +211,46 @@
 }
 .modalcontent{
   width: 500px;
-  height: 700px;
+  height: auto;
   background-color: white;
 }
+.closebutton{
+  display: flex;
+  justify-content: flex-end;
+}
+.closebutton button{
+  display: flex;
+  padding: 10px;
+  border: none;
+  background-color: #cf9c50;
+  justify-content: end;
+  position: fixed;
+  left: 50;
+  top: 50;
+}
+.modalcontent form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0px 15px;
+}
+.modalcontent h1 {
+  text-align: center;
+}
+.modalcontent input {
+  padding: 15px;
+}
+.modalcontent form button {
+  display: flex;
+  padding: 10px;
+  margin: 10px 0px;
+  border: none;
+  background-color: #cf9c50;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+}
+
 
 
 .navbar-form input, .form-inline input {

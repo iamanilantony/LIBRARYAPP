@@ -10,8 +10,23 @@
           <button onclick="myFunction()">Edit</button>            
           <div id="modal" class="modal" style="display: none;">
             <div class="modalcontent">
-            <button onclick="myFunction1()">&times;</button>
-            <h1>Modal</h1>
+              <div class="closebutton">
+                <button onclick="myFunction1()">&times;</button>
+              </div>
+            <h1>Update Author</h1>
+            <form action="/api/author" method="post" id="updateauthor">
+                Name :
+                <input type="text" name="name" id="name" placeholder='Enter the name'>
+                Books :
+                <input type="text" name="books" id="books"  placeholder='Enter the Books'>
+                Age :
+                <input type="text" name="age" id="age"  placeholder='Enter the Age'>
+                Desc :
+                <input type="text" name="desc" id="desc"  placeholder='Enter the Desc'>
+                Image url :
+                <input type="text" name="img" id="img"  placeholder='Enter the Image'>
+                <button type="submit">Update</button>
+            </form>
             </div>
           </div>
             <a href="/">Home</a>  
