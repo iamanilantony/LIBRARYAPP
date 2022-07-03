@@ -138,7 +138,8 @@ exports.deleteauthor = (req,res) => {
             return;
         }
         else{
-            res.send('Data updated succesfuly'+data)
+            res.send('data deleted'+data);
+            // next()
         }
     })
     .catch(err=>{

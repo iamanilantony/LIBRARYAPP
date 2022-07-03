@@ -41,6 +41,16 @@
   cursor: pointer;
   transition: 0.5s ease;
 }
+.nav-item-s{
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  
+}
 .nav-item:last-child{
   background-color: #daaa6300;
   border: 2px solid black;
@@ -160,7 +170,7 @@
   padding: 10px;
   border-radius: 10px;
 }
-.card-content a{
+.card-content a, .buttonB{
   display: flex;
   justify-content: center;
   align-items: center;

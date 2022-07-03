@@ -4,33 +4,37 @@
       <div class="card-content">
           <h1><%=author.name%></h1>
           <h2><%=author.books%></h2>
-          <h3><%=author.age%></h3>
+          <h3>Age : <%=author.Age%></h3>
           <h2><%=author.desc%></h2>
           <!-- Update Modal -->
-          <button onclick="myFunction()">Edit</button>            
+          <div class="buttongroup">
+            <a href="/">Home</a>  
+            <button onclick="deleteauthor('<%=author._id%>')" class="buttonB" data-id="">Delete</button>
+            <button onclick="myFunction()" class="buttonB">Edit</button>            
+          </div>
           <div id="modal" class="modal" style="display: none;">
             <div class="modalcontent">
               <div class="closebutton">
                 <button onclick="myFunction1()">&times;</button>
               </div>
             <h1>Update Author</h1>
-            <form action="/api/author" method="post" id="updateauthor">
+            <form method="post" id="updateauthor">
                 Name :
-                <input type="text" name="name" id="name" placeholder='Enter the name'>
+                <input type="hidden" name="id" value="<%=author._id%>">
+                <input type="text" name="name" value="<%=author.name%>" value="name" placeholder='Enter the name'>
                 Books :
-                <input type="text" name="books" id="books"  placeholder='Enter the Books'>
+                <input type="text" name="books" value="<%=author.books%>"  placeholder='Enter the Books'>
                 Age :
-                <input type="text" name="age" id="age"  placeholder='Enter the Age'>
+                <input type="text" name="Age" value="<%=author.age%>"  placeholder='Enter the Age'>
                 Desc :
-                <input type="text" name="desc" id="desc"  placeholder='Enter the Desc'>
+                <input type="text" name="desc" value="<%=author.desc%>"  placeholder='Enter the Desc'>
                 Image url :
-                <input type="text" name="img" id="img"  placeholder='Enter the Image'>
+                <input type="text" name="img" value="<%=author.img%>"  placeholder='Enter the Image'>
                 <button type="submit">Update</button>
             </form>
             </div>
           </div>
-            <a href="/">Home</a>  
-            <a href="/">Delete</a>  
+             
           </div>
       </div>
     </div>
