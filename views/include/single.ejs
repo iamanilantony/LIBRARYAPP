@@ -11,7 +11,31 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia veniam ratione officiis aut soluta nulla voluptates, dicta corrupti quisquam rerum, dolorem amet magni quas illum ex enim reprehenderit eaque cum.
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quam voluptatum sint non temporibus excepturi ipsam, placeat, dolor rem, saepe perspiciatis minima. Perferendis neque magnam odio fugit laborum quibusdam ratione!
            </h4>
-          <a href="/">Home</a>
+           <div class="buttongroup">
+            <a href="/">Home</a>  
+            <button onclick="deletebook('<%=book._id%>')" class="buttonB" data-id="">Delete</button>
+            <button onclick="myFunction()" class="buttonB">Edit</button>            
+          </div>
+          <div id="modal" class="modal" style="display: none;">
+            <div class="modalcontent">
+              <div class="closebutton">
+                <button onclick="myFunction1()">&times;</button>
+              </div>
+            <h1>Update book</h1>
+            <form method="post" id="updatebook">
+                Title :
+                <input type="hidden" name="id" value="<%=book._id%>">
+                <input type="text" name="name" value="<%=book.title%>" value="name" placeholder='Enter the Title'>
+                Author :
+                <input type="text" name="books" value="<%=book.author%>"  placeholder='Enter the Books'>
+                Desc :
+                <input type="text" name="desc" value="<%=book.desc%>"  placeholder='Enter the Desc'>
+                Image url :
+                <input type="text" name="img" value="<%=book.img%>"  placeholder='Enter the Image'>
+                <button type="submit">Update</button>
+            </form>
+            </div>
+          </div>
       </div>
     </div>
   </div>
