@@ -28,13 +28,15 @@ if(Object.entries(req.body).length === 0){
         return;
     }
     var id = req.params.id;
-    LibrarySchema.findByIdAndUpdate(id,req.query,{useFindAndModify:false})
+    LibrarySchema.findByIdAndUpdate(id,req.body,{useFindAndModify:false})
         .then(data=>{
             if(!data){
                 res.send('User Does not exist')
                 return;
             }
-            res.send(data)
+            else{
+                res.send(data)
+            }
         })
         .catch(err => {
             res.status(400).send({message:'No such user'})

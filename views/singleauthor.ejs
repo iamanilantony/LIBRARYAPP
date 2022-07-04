@@ -31,11 +31,9 @@
        event.preventDefault();
        var unindexed_array = $(this).serializeArray();
        var data={}
-       console.log(unindexed_array);
        $.map(unindexed_array,function(n,i){
            data[n['name']]=n['value']
        })
-       console.log(data);
        var request = {
            'url':`http://localhost:5000/api/author/${data.id}`,
            'method': 'put',

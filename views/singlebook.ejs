@@ -21,24 +21,27 @@
     </div>
     <%-include('include/modalscript')%>  
 	<!-- script references -->
-	<script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
 		//  update author request
+        // var form = document.getElementById("updatebook");
+	    // form.submit(function(event){
 		$("#updatebook").submit(function(event){
        event.preventDefault();
        var unindexed_array = $(this).serializeArray();
        var data={}
-       console.log(unindexed_array);
        $.map(unindexed_array,function(n,i){
            data[n['name']]=n['value']
        })
-       console.log(data);
        var request = {
            'url':`http://localhost:5000/api/books/${data.id}`,
            'method': 'put',
            'data': data
        }
+       console.log(request)
        $.ajax(request).done(function(response){
            alert('Data updated Successfully')
+           window.location.reload();
        })
    })
 		// delete author request
@@ -55,10 +58,8 @@
       }
    }
 	</script>
-  <script src="https://kit.fontawesome.com/62f747839e.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/62f747839e.js" crossorigin="anonymous"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script src="jquery.popupoverlay.js"></script>
+		<script src="../public/js/bootstrap.min.js"></script>
 	</body>
 </html>

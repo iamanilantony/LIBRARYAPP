@@ -13,7 +13,7 @@
            </h4>
            <div class="buttongroup">
             <a href="/">Home</a>  
-            <button onclick="deletebook('<%=book._id%>')" class="buttonB" data-id="">Delete</button>
+            <button onclick="deletebook('<%=book._id%>')" class="buttonB">Delete</button>
             <button onclick="myFunction()" class="buttonB">Edit</button>            
           </div>
           <div id="modal" class="modal" style="display: none;">
@@ -22,10 +22,10 @@
                 <button onclick="myFunction1()">&times;</button>
               </div>
             <h1>Update book</h1>
-            <form method="post" id="updatebook">
+            <form id="updatebook" method="post">
                 Title :
-                <input type="hidden" name="id" value="<%=book._id%>">
-                <input type="text" name="name" value="<%=book.title%>" value="name" placeholder='Enter the Title'>
+                <input type="hidden" name="id"  value="<%=book._id%>">
+                <input type="text" name="name" value="<%=book.title%>" placeholder='Enter the Title'>
                 Author :
                 <input type="text" name="books" value="<%=book.author%>"  placeholder='Enter the Books'>
                 Desc :
@@ -39,3 +39,4 @@
       </div>
     </div>
   </div>
+  
