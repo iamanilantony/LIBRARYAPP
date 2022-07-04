@@ -5,12 +5,9 @@
           <h1><%=book.title%></h1>
           <h2><%=book.author%></h2>
           <h3><%=book.desc%></h3>
+          <h4><%=book.about%></h4>
           <!-- <h4><%=book?.about%></h4>
            -->
-           <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta fugit saepe laudantium culpa excepturi aut at mollitia illum velit accusamus! Odit optio quis vel modi totam facere. Esse, commodi hic!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia veniam ratione officiis aut soluta nulla voluptates, dicta corrupti quisquam rerum, dolorem amet magni quas illum ex enim reprehenderit eaque cum.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quam voluptatum sint non temporibus excepturi ipsam, placeat, dolor rem, saepe perspiciatis minima. Perferendis neque magnam odio fugit laborum quibusdam ratione!
-           </h4>
            <div class="buttongroup">
             <a href="/">Home</a>  
             <button onclick="deletebook('<%=book._id%>')" class="buttonB">Delete</button>
@@ -30,6 +27,8 @@
                 <input type="text" name="books" value="<%=book.author%>"  placeholder='Enter the Books'>
                 Desc :
                 <input type="text" name="desc" value="<%=book.desc%>"  placeholder='Enter the Desc'>
+                About :
+                <input type="text" name="about" value="<%=book.about%>"  placeholder='Enter book details'>
                 Image url :
                 <input type="text" name="img" value="<%=book.img%>"  placeholder='Enter the Image'>
                 <button type="submit">Update</button>

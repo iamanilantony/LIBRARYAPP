@@ -23,6 +23,7 @@ router.get('/',services.homeroute)
 router.get('/singlebook/:id',services.singlebook)
 router.get('/authors',services.authors)
 router.get('/author/:id',services.singleauthor)
+router.get('/login',services.login)
 
 
 

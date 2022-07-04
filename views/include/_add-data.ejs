@@ -1,0 +1,92 @@
+<div id="modal1" class="modal" style="display: none;">
+    <div class="modalcontent">
+      <div class="closebutton">
+        <button onclick="myAddFunction1()">&times;</button>
+      </div>
+      <div class="choice">
+        <span class="btn book_btn" id="bookbtn" onclick="choosebook()"><i class="fa fa-solid fa-book marginright"></i>Book</span>
+        <span class="btn author_btn" id="authorbtn" onclick="chooseauthor()"><i class="fa fa-solid fa-user marginright"></i>Author</span>
+      </div>
+      <div id="choice-book" class="choice-book">
+        <form action="/api/books" method="post">
+        <div class="add_book">
+              <h1>Add book</h1>
+              Title :
+              <input type="hidden" name="id" >
+              <input type="text" name="title" placeholder='Enter the Title'>
+              Author :
+              <input type="text" name="books" placeholder='Enter the Books'>
+              Desc :
+              <input type="text" name="desc" placeholder='Enter the Desc'>
+              About :
+              <input type="text" name="about" placeholder='Enter about the book'>
+              Image url :
+              <input type="text" name="img" placeholder='Enter the Image'>
+              <button type="submit">Add</button>
+          </div>
+        </form>
+      </div>
+      <div id="choice-author" class="choice-author">
+        <form method="post" action="/api/author">
+        <div class="add_book">
+              <h1>Add Author</h1>
+              Name :
+              <input type="hidden" name="id" >
+              <input type="text" name="name" placeholder='Enter the Title'>
+              Books :
+              <input type="text" name="books" placeholder='Enter the Books'>
+              Age :
+              <input type="text" name="Age" placeholder='Enter the Age'>
+              Desc :
+              <input type="text" name="desc" placeholder='Enter the Desc'>
+              Image url :
+              <input type="text" name="img" placeholder='Enter the Image'>
+              <button type="submit">Add</button>
+          </div>
+        </form>
+      </div>
+    
+    </div>
+  </div>
+  
+  <script>
+    //author book toggle script
+    var bookbtn = document.getElementById("bookbtn");
+    var authorbtn = document.getElementById("authorbtn");
+    var choicebook = document.getElementById("choice-book");
+    var choiceauthor = document.getElementById("choice-author");
+    function chooseauthor(){
+      choicebook.style.display ="none";
+      choiceauthor.style.display = "flex";
+      bookbtn.style.backgroundColor = "white";
+      bookbtn.style.color = "gray";
+      authorbtn.style.color = "white";
+      authorbtn.style.backgroundColor = "#c89953";
+    }
+    function choosebook(){
+      choicebook.style.display ="flex";
+      choiceauthor.style.display = "none";
+      bookbtn.style.backgroundColor = "#c89953";
+      bookbtn.style.color = "white";
+      authorbtn.style.color = "gray";
+      authorbtn.style.backgroundColor = "white";
+    }
+  
+  
+  
+    //modal working script
+  
+    var modal1 = document.getElementById("modal1");
+    function myAddFunction() {
+        // alert('alert box')
+        modal1.style.display = "flex";
+    }
+    function myAddFunction1() {
+        modal1.style.display = "none";
+    }
+    window.onclick = function(event) {
+      if (event.target == modal1) {
+        modal1.style.display = "none";
+      }
+    }
+  </script>

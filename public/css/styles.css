@@ -207,7 +207,7 @@
 .buttongroup{
   display: flex;
 }
-.card-content .modal{
+.modal{
   width: 100%;
   height: 100%;
   position: fixed;
@@ -220,7 +220,8 @@
   top: 0;
 }
 .modalcontent{
-  width: 500px;
+  border-radius: 10px;
+  width: min-content;
   height: auto;
   background-color: white;
 }
@@ -242,7 +243,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 0px 15px;
+  margin: 10px 25px;
 }
 .modalcontent h1 {
   text-align: center;
@@ -260,7 +261,9 @@
   font-size: 18px;
   cursor: pointer;
 }
-
+.footerwrapper{
+  width: 60%;
+}
 
 
 .navbar-form input, .form-inline input {
@@ -278,17 +281,38 @@ h1,h2,h3,.highlight,.navbar a,#masthead h4 {
   font-family:'Oswald',arial narrow,sans-serif;
 }
 .footercontainer{
-  height: 50px;
+  height: 0px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 footer {
-  width: 103%;
+  width: 100%;
+  height: 100px;
+  margin-right: 100px;
   margin-top:40px;
   padding-top:100px;
   padding-bottom:40px;
   background-color: #c89953; 
 }
-
+.choice{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+.btn{
+  font-size: 20px;
+  border: 1px solid black;
+}
+.book_btn{
+  background-color: #c89953;
+  color: white
+}
+.choice-author{
+  display: none;
+}
 
 #masthead {
   min-height:199px;

@@ -7,16 +7,18 @@ exports.addbook=(req,res) => {
         return ;
     }
    var book = new LibrarySchema({
-        title: req.query.title,
-        author: req.query.author,
-        img: req.query.img,
-        desc: req.query.desc,
+        title: req.body.title,
+        author: req.body.author,
+        img: req.body.img,
+        desc: req.body.desc,
+        about: req.body.about,
    })
 
    book
         .save()
         .then(data => {
-            res.send("Data updated")
+            // res.send("Data updated")
+            res.redirect('/books')
         })
         .catch(e=>{
             res.send('Error updating'+e)
@@ -87,22 +89,23 @@ exports.deletebook=(req,res) => {
         }
 
 exports.addauthor = (req,res) => {
-    if(Object.entries(req.query).length === 0){
+    if(!req.body){
         res.status(400).send(`Cannot Insert Empty value ${req.query}`);
         return ;
     }
     let author = new AuthorSchema ({
-        name : req.query.name,
-        books :req.query.books,
-        Age : req.query.age,
-        img : req.query.img,
-        desc : req.query.desc,
+        name : req.body.name,
+        books :req.body.books,
+        Age : req.body.age,
+        img : req.body.img,
+        desc : req.body.desc,
     })
 
     author
         .save()
         .then(data=>{
-            res.send(data)
+            // res.send(data)
+            res.redirect('/authors')
         })
         .catch(err=>{
             res.status(400).send('Error Adding data to db')
