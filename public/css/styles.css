@@ -368,6 +368,89 @@ a,a:hover {
 .icon-bar {
   background-color:#fff;
 }
+.chooselogin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  border-radius: 10px;
+  height: 40px;
+  background-color: #c89953;
+  justify-content: space-around;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+.loginorwrapper{
+  display: flex;
+  justify-content: space-between;
+}
+.login-container{
+  height: 90vh;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-wrapper,.signup-wrapper{
+  width: min-content;
+  height: auto;
+  background-color: white;
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 10px;
+  margin-right: 20px;
+  transition: 1s ease;
+}
+.login-wrapper h1,.signup-wrapper h1 {
+  font-size: 28px;
+  color: black;
+  font-weight: 800;
+}
+.login-wrapper form,.signup-wrapper form input{
+  margin-top: 10px;
+}
+.login-wrapper form input,.signup-wrapper form input{
+  height: 50px;
+  background-color: rgb(236, 235, 235);
+  margin: 20px 0px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+.login-wrapper form button,.signup-wrapper form button{
+  margin-top: 20px;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  height: 40px;
+  align-items: center;
+  background-color: #c89953;
+  color: white;
+  border: none;
+}
+.signup-wrapper{
+  /* width: min-content; */
+  /* height: auto; */
+  /* background-color: white; */
+  display: none;
+
+}
+#login-btn,#signup-btn{
+  background-color: white;
+  color: black;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+#signup-btn{
+  background-color: #c89953;
+}
+
 
 @media screen and (min-width: 768px) {
   #masthead h1 {
