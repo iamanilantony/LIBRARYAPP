@@ -3,11 +3,10 @@
       <img class="card-image" src="<%=book.img%>" alt="">
       <div class="card-content">
           <h1><%=book.title%></h1>
+          <%=console.log(book)%>
           <h2><%=book.author%></h2>
           <h3><%=book.desc%></h3>
           <h4><%=book.about%></h4>
-          <!-- <h4><%=book?.about%></h4>
-           -->
            <div class="buttongroup">
             <a href="/">Home</a>  
             <button onclick="deletebook('<%=book._id%>')" class="buttonB">Delete</button>
@@ -24,9 +23,9 @@
                 <input type="hidden" name="id"  value="<%=book._id%>">
                 <input type="text" name="name" value="<%=book.title%>" placeholder='Enter the Title'>
                 Author :
-                <input type="text" name="books" value="<%=book.author%>"  placeholder='Enter the Books'>
+                <input type="text" name="author" value="<%=book.author%>"  placeholder='Enter the author'>
                 Desc :
-                <input type="text" name="desc" value="<%=book.desc%>"  placeholder='Enter the Desc'>
+                <input type="text" name="desc" value="<%=book.desc%>"  placeholder='Enter the genre'>
                 About :
                 <input type="text" name="about" value="<%=book.about%>"  placeholder='Enter book details'>
                 Image url :

@@ -43,3 +43,7 @@ exports.singleauthor = (req,res) => {
             res.status(400).send({message:'error retreiving single author '+err})
         })
 }
+
+exports.login = (req,res) => {
+    res.render('login')
+}

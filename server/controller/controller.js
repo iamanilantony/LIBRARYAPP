@@ -17,8 +17,7 @@ exports.addbook=(req,res) => {
    book
         .save()
         .then(data => {
-            // res.send("Data updated")
-            res.redirect('/books')
+            res.redirect('/')
         })
         .catch(e=>{
             res.send('Error updating'+e)
