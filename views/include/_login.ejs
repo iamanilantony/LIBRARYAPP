@@ -10,24 +10,54 @@
     <div class="loginorwrapper">
         <div class="login-wrapper" id="login">
             <h1>LOGIN</h1>
-            <form action="">
-                <input type="text" placeholder="Username">
-                <input type="password" placeholder="Password">
+            <form onsubmit="validate()">
+                <input type="text" id="username" placeholder="Username">
+                <input type="password" id="password" placeholder="Password">
                 <button type="submit">Submit</button>
             </form>
         </div>
         <div class="signup-wrapper" id="signup">
             <h1>SignUp</h1>
-            <form action="">
-                <input type="text" placeholder="Name">
-                <input type="text" placeholder="Username">
-                <input type="text" placeholder="Password">
-                <input type="password" placeholder="Confirm Password">
+            <form action="/api/users" method="post">
+                <input type="text" name="name" placeholder="Name">
+                <input type="text" name="username" placeholder="Username">
+                <input type="text" name="password" placeholder="Password">
+                <input type="password" name="cpassword" placeholder="Confirm Password">
+                <div class="admin">
+                    Admin Privilages : <label class="switch">
+                        <input type="checkbox" name="admin" id="admin">
+                        <span class="slider round"></span>
+                        </label>
+                </div>
+                  
                 <button type="submit">Submit</button>
             </form>
         </div>
     </div>
 </div>
+<script>
+    function validate(){
+        var username1 = document.getElementById('username').value;
+        var password1 = document.getElementById('password').value;
+        var data = {
+            username : username1,
+            password : password1,
+        }
+        var request = {
+            'url':`http://localhost:5000/api/users`,
+            'method' : 'get',
+            'data' : data,
+        }
+        $.ajax(request)
+            .done(function(response){
+                // window.location.href('/');
+                alert('Logged In')
+            })
+            .fail(err => {
+                alert('Invalid credentials try again')
+            })
+    }
+</script>
 <script>
     var login = document.getElementById('login')
     var signup = document.getElementById('signup');

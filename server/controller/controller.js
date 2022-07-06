@@ -1,5 +1,6 @@
 const LibrarySchema = require('../model/model') 
 const AuthorSchema = require('../model/authmodel') 
+const userdb = require('../model/usermodel')
 
 exports.addbook=(req,res) => {
     if(Object.entries(req.body).length === 0){
@@ -176,5 +177,69 @@ exports.findauthor = (req,res) => {
                 res.send('Error fetching data'+err)
             })
 
+    }
+}
+
+exports.adduser = (req,res) => {
+    if(!req.body){
+        res.send("Empty data cannot be inserted")
+        return ;
+    }
+    var admin = false;
+    if(!req.body.admin){
+         admin = false;
+    }
+    else{
+        admin = true;
+    }
+    let user = new userdb ({
+            name : req.body.name,
+            username : req.body.username,
+            password : req.body.password,
+            admin : admin,
+        })
+        user
+            .save()
+            .then(responsive=>{
+                res.redirect('/login')
+            })
+            .catch(err=>{
+                res.send('Could not upload user'+err)
+            })
+}
+exports.finduser = (req,res) => {
+    if(!req.params.id){
+        userdb.find()
+            .then(response=>{
+                var username = req.body.username;
+                var password = req.body.password;        
+                console.log(typeof(response))
+                response.filter((username,password) => {
+                    if(username == response.username && password == response.password){
+                        res.render('index')
+                    }
+                    else{
+                        res.send('Wrong Credentials')
+                    }
+                })
+            })
+            .catch(err=>{
+                res.send('Could not fetch full user data '+err)
+            })
+    }
+    else{
+        var id = req.params.id;
+        userdb.findById(id)
+        .then(response=>{
+            if(!response){
+                res.send('Invalid user data '+response)
+            }
+            else{
+                res.send(response)
+            }
+        })
+        .catch(err=>{
+            res.send('Could not get user data'+err)
+        })
     }
 }

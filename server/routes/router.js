@@ -18,6 +18,11 @@ router.get('/api/author/:id',controller.findauthor)
 router.get('/api/author',controller.findauthor)
 router.delete('/api/author/:id',controller.deleteauthor)
 
+//restful api user
+router.post('/api/users',controller.adduser)
+router.get('/api/users',controller.finduser)
+router.get('/api/users/:id',controller.finduser)
+
 //service routes
 router.get('/',services.homeroute)
 router.get('/singlebook/:id',services.singlebook)
