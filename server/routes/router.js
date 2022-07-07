@@ -4,6 +4,16 @@ const services = require('../services/render')
 
 const router = express.Router()  
 
+//auth middleware
+const auth = (req,res,next) => {
+    if(req.session.userid){
+        next();
+    } 
+    else{
+        res.redirect('/login')
+    }
+}
+
 //restful api books
 router.post('/api/books',controller.addbook)
 router.put('/api/books/:id',controller.updatebook)
@@ -26,14 +36,11 @@ router.get('/api/users/:id',controller.finduser)
 router.post('/api/usersvalid',services.usersvalid)
 
 //service routes
-router.get('/',services.homeroute)
-router.get('/singlebook/:id',services.singlebook)
-router.get('/authors',services.authors)
-router.get('/author/:id',services.singleauthor)
+router.get('/',auth,services.homeroute)
+router.get('/singlebook/:id',auth,services.singlebook)
+router.get('/authors',auth,services.authors)
+router.get('/author/:id',auth,services.singleauthor)
 router.get('/login',services.login)
-
-
-
 
 
 module.exports = router

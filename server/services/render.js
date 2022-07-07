@@ -5,7 +5,7 @@ exports.homeroute = (req,res) => {
     axios.get('http://localhost:5000/api/books')
         .then(response=>{
             res.render('index',{
-                title : 'Library',books : response.data 
+                title : 'Library',books : response.data, username : req.session.userid 
             })
         })
         .catch(err=>{
@@ -55,6 +55,7 @@ exports.login = (req,res) => {
 }
 
 exports.usersvalid = (req,res) => {
+    var session;
     if(!req.body){
         res.send('Insert Values');
         return;
@@ -64,6 +65,9 @@ exports.usersvalid = (req,res) => {
             for(let i=0;i<response.data.length;i++){
                 if (response.data[i].username === req.body.username){
                     if (response.data[i].password === req.body.password){
+                        session = req.session;
+                        session.userid = req.body.username;
+                        console.log(req.session)
                         res.redirect(`/?username=${req.body.username}`) 
                         // res.send('password confirmed')
                     }
@@ -71,10 +75,9 @@ exports.usersvalid = (req,res) => {
                         res.redirect('/login')
                         // res.send('Enter right password')
                     }
-                }else{
-                    res.send('No user Was Found '+response.data)
                 }
             }
+            res.send('No user Was Found '+response.data)
             
              
         })
