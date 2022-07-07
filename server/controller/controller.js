@@ -211,17 +211,7 @@ exports.finduser = (req,res) => {
     if(!req.params.id){
         userdb.find()
             .then(response=>{
-                var username = req.body.username;
-                var password = req.body.password;        
-                console.log(typeof(response))
-                response.filter((username,password) => {
-                    if(username == response.username && password == response.password){
-                        res.render('index')
-                    }
-                    else{
-                        res.send('Wrong Credentials')
-                    }
-                })
+                res.send(response)
             })
             .catch(err=>{
                 res.send('Could not fetch full user data '+err)
@@ -232,14 +222,15 @@ exports.finduser = (req,res) => {
         userdb.findById(id)
         .then(response=>{
             if(!response){
-                res.send('Invalid user data '+response)
+                res.redirect('/')
             }
             else{
                 res.send(response)
             }
         })
         .catch(err=>{
-            res.send('Could not get user data'+err)
+            res.render('/login')
         })
     }
 }
+

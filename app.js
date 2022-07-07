@@ -9,6 +9,8 @@ const app = express();
 app.set('view engine','ejs');
 app.set('views','./views');
 
+//set parser
+app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({extended:true}))
 
 //connect mongoDB

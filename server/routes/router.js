@@ -23,12 +23,16 @@ router.post('/api/users',controller.adduser)
 router.get('/api/users',controller.finduser)
 router.get('/api/users/:id',controller.finduser)
 
+router.post('/api/usersvalid',services.usersvalid)
+
 //service routes
 router.get('/',services.homeroute)
 router.get('/singlebook/:id',services.singlebook)
 router.get('/authors',services.authors)
 router.get('/author/:id',services.singleauthor)
 router.get('/login',services.login)
+
+
 
 
 

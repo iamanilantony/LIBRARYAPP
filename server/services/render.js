@@ -45,5 +45,40 @@ exports.singleauthor = (req,res) => {
 }
 
 exports.login = (req,res) => {
-    res.render('login')
+    axios.get('http://localhost:5000/api/users')
+        .then(response => {
+            res.render('login',{users : response.data})
+        })
+        .catch(err=> {
+            res.send('Could not fetch data' + err);
+        })
 }
+
+exports.usersvalid = (req,res) => {
+    if(!req.body){
+        res.send('Insert Values');
+        return;
+    }
+    axios.get('http://localhost:5000/api/users')
+        .then(response=>{
+            for(let i=0;i<response.data.length;i++){
+                if (response.data[i].username === req.body.username){
+                    if (response.data[i].password === req.body.password){
+                        res.redirect(`/?username=${req.body.username}`) 
+                        // res.send('password confirmed')
+                    }
+                    else{
+                        res.redirect('/login')
+                        // res.send('Enter right password')
+                    }
+                }else{
+                    res.send('No user Was Found '+response.data)
+                }
+            }
+            
+             
+        })
+}
+
+
+
