@@ -49,6 +49,7 @@
   border: 2px solid black;
   padding: 10px;
   border-radius: 10px;
+  margin-right: 10px;
   
 }
 .nav-item:last-child{
@@ -68,6 +69,16 @@
 }
 .nav-right{
   font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-right form{
+  display: flex;
+}
+.nav-right form button{
+  border: none; 
+  background-color: #00002200;
 }
 .nav-items{
   padding-right: 5px;
@@ -75,7 +86,7 @@
   transition: 0.5s;
 }
 .nav-items:hover{
-  font-weight: 800;
+  color: gray;
 }
 .headerwrapper{
   padding: 60px 0px;

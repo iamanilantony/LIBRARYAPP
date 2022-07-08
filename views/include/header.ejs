@@ -12,7 +12,10 @@
       </div>
       <div class="nav-right">
         <span class="nav-items nav-item-s" onclick="myAddFunction()">Add</span>
-        <%=username%><span class="nav-items"> LogOut</span> 
+        <form action="/logout" method="post">
+          Hi <%=username%>
+          <button type="submit" class="nav-items">LogOut</button> 
+        </form>
       </div>
     </div>
   </div>
