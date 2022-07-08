@@ -33,7 +33,11 @@ router.post('/api/users',controller.adduser)
 router.get('/api/users',controller.finduser)
 router.get('/api/users/:id',controller.finduser)
 
+//validate login
 router.post('/api/usersvalid',services.usersvalid)
+
+//session destroy on logout
+router.post('/logout',services.logout)
 
 //service routes
 router.get('/',auth,services.homeroute)
