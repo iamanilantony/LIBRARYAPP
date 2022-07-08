@@ -429,7 +429,19 @@ a,a:hover {
   border-radius: 10px;
   padding: 10px;
 }
-.login-wrapper form button,.signup-wrapper form button{
+.signupbuttonclass{
+  margin-top: 20px;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  height: 40px;
+  align-items: center;
+  background-color: #c89953 !important; 
+  color: white;
+  border: none;
+}
+.login-wrapper form button{
   margin-top: 20px;
   display: flex;
   width: 100%;
