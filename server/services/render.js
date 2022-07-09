@@ -5,7 +5,7 @@ exports.homeroute = (req,res) => {
     axios.get('http://localhost:5000/api/books')
         .then(response=>{
             res.render('index',{
-                title : 'Library',books : response.data, username : req.session.userid 
+                title : 'Library',books : response.data, username : req.session.userid , admin : req.session.admin
             })
         })
         .catch(err=>{
@@ -17,7 +17,7 @@ exports.singlebook = (req,res)=>{
     const id = req.params.id;
     axios.get(`http://localhost:5000/api/books/${id}`)
         .then(response=>{
-            res.render('singlebook',{book : response.data , username : req.session.userid})
+            res.render('singlebook',{book : response.data , username : req.session.userid , admin : req.session.admin})
         })
         .catch(err=>{
             res.status(400).send({message:'error retreiving data single book'+err})
@@ -26,7 +26,7 @@ exports.singlebook = (req,res)=>{
 exports.authors = (req,res) => {
     axios.get('http://localhost:5000/api/author')
         .then(response=>{
-            res.render('authors',{authors : response.data, username : req.session.userid})
+            res.render('authors',{authors : response.data, username : req.session.userid , admin : req.session.admin})
         })
         .catch(err=>{
             res.status(400).send({message:'error retreiving data authors'+err})
@@ -37,7 +37,7 @@ exports.singleauthor = (req,res) => {
     const id = req.params.id;
     axios.get(`http://localhost:5000/api/author/${id}`)
         .then(response=>{
-            res.render('singleauthor',{author : response.data,username : req.session.userid })
+            res.render('singleauthor',{author : response.data,username : req.session.userid , admin : req.session.admin})
         })
         .catch(err=>{
             res.status(400).send({message:'error retreiving single author '+err})
@@ -47,7 +47,7 @@ exports.singleauthor = (req,res) => {
 exports.login = (req,res) => {
     axios.get('http://localhost:5000/api/users')
         .then(response => {
-            res.render('login',{users : response.data, username : req.session.userid})
+            res.render('login',{users : response.data, username : req.session.userid , admin : req.session.admin})
         })
         .catch(err=> {
             res.send('Could not fetch data' + err);
@@ -78,7 +78,7 @@ exports.usersvalid = (req,res) => {
                     }
                 }
             }
-            res.send('No user Was Found '+response.data)
+            // res.send('No user Was Found '+response.data)
             
              
         })

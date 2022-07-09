@@ -391,6 +391,12 @@ a,a:hover {
   margin-bottom: 25px;
   cursor: pointer;
 }
+.good{
+  display: block;
+}
+.bad{
+  display: none;
+}
 .loginorwrapper{
   display: flex;
   justify-content: space-between;

@@ -9,8 +9,8 @@
           <h4><%=book.about%></h4>
            <div class="buttongroup">
             <a href="/">Home</a>  
-            <button onclick="deletebook('<%=book._id%>')" class="buttonB">Delete</button>
-            <button onclick="myFunction()" class="buttonB">Edit</button>            
+            <button onclick="deletebook('<%=book._id%>')" class="buttonB <%= admin ? 'good' : 'bad' %>">Delete</button>
+            <button onclick="myFunction()" class="buttonB <%= admin ? 'good' : 'bad' %>">Edit</button>            
           </div>
           <div id="modal" class="modal" style="display: none;">
             <div class="modalcontent">

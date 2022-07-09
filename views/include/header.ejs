@@ -11,7 +11,8 @@
              <span class="nav-item"><i class="fa fa-solid fa-feather marginright"></i><a href="/authors">Authors</a> </span> 
       </div>
       <div class="nav-right">
-        <span class="nav-items nav-item-s" onclick="myAddFunction()">Add</span>
+        <div class=""></div>
+        <span class="nav-items nav-item-s <%= admin ? 'good' : 'bad' %>" onclick="myAddFunction()">Add</span>
         <form action="/logout" method="post">
           Hi <%=username%>
           <button type="submit" class="nav-items">LogOut</button> 
