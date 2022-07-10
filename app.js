@@ -5,7 +5,7 @@ const sessions = require('express-session')
 const bodyparser = require('body-parser');
 const connectDB = require('./server/database/connection')
 const sessionstore = require('./server/database/sessionconnection')
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 3000
 
 const app = express();
 
@@ -43,4 +43,6 @@ app.use(cookieparser());
 app.use('/',require('./server/routes/router'),)
 
 //set port
-app.listen(port);
+app.listen(port,()=>{
+    console.log("server listening to port "+port);
+});
