@@ -5,7 +5,9 @@ const sessions = require('express-session')
 const bodyparser = require('body-parser');
 const connectDB = require('./server/database/connection')
 const sessionstore = require('./server/database/sessionconnection')
+const dotenv = require('dotenv');
 const port = process.env.PORT || 3000
+const path = require('path');
 
 const app = express();
 
@@ -13,7 +15,8 @@ const app = express();
 app.set('view engine','ejs');
 app.set('views','./views');
 
-
+//config
+dotenv.config({path:'config.env'})
 
 //set parser
 app.use(bodyparser.json())
