@@ -2,7 +2,7 @@ const axios = require('axios');
 
 //Get request for Homepage
 exports.homeroute = (req,res) => {
-    axios.get(`https://localhost:3000/api/books`)
+    axios.get(`https://libraryapp3134.herokuapp.com/api/books`)
         .then(response=>{
             res.render('index',{
                 title : 'Library',books : response.data, username : req.session.userid , admin : req.session.admin
@@ -15,7 +15,7 @@ exports.homeroute = (req,res) => {
 }
 exports.singlebook = (req,res)=>{
     const id = req.params.id;
-    axios.get(`https://localhost:3000/api/books/${id}`)
+    axios.get(`https://libraryapp3134.herokuapp.com/api/books/${id}`)
         .then(response=>{
             res.render('singlebook',{book : response.data , username : req.session.userid , admin : req.session.admin})
         })
@@ -24,7 +24,7 @@ exports.singlebook = (req,res)=>{
         })
 }
 exports.authors = (req,res) => {
-    axios.get(`https://localhost:3000/api/author`)
+    axios.get(`https://libraryapp3134.herokuapp.com/api/author`)
         .then(response=>{
             res.render('authors',{authors : response.data, username : req.session.userid , admin : req.session.admin})
         })
@@ -35,7 +35,7 @@ exports.authors = (req,res) => {
 
 exports.singleauthor = (req,res) => {
     const id = req.params.id;
-    axios.get(`https://localhost:3000/api/author/${id}`)
+    axios.get(`https://libraryapp3134.herokuapp.com/api/author/${id}`)
         .then(response=>{
             res.render('singleauthor',{author : response.data,username : req.session.userid , admin : req.session.admin})
         })
@@ -45,7 +45,7 @@ exports.singleauthor = (req,res) => {
 }
 
 exports.login = (req,res) => {
-    axios.get(`https://localhost:3000/api/users`)
+    axios.get(`https://libraryapp3134.herokuapp.com/api/users`)
         .then(response => {
             res.render('login',{users : response.data, username : req.session.userid , admin : req.session.admin})
         })
@@ -60,7 +60,7 @@ exports.usersvalid = (req,res) => {
         res.send('Insert Values');
         return;
     }
-    axios.get(`http://localhost:3000/api/users`)
+    axios.get(`https://libraryapp3134.herokuapp.com/api/users`)
         .then(response=>{
             for(let i=0;i<response.data.length;i++){
                 if (response.data[i].username === req.body.username){
