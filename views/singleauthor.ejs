@@ -35,7 +35,7 @@
            data[n['name']]=n['value']
        })
        var request = {
-           'url':`http://localhost:3000/api/author/${data.id}`,
+           'url':`https://localhost:3000/api/author/${data.id}`,
            'method': 'put',
            'data': data
        }
@@ -47,7 +47,7 @@
 		// delete author request
   		function deleteauthor(id){
 		var request = {
-          'url':`http://localhost:3000/api/author/${id}`,
+          'url':`https://localhost:3000/api/author/${id}`,
           'method': 'delete',
       }
       if(confirm("Do you want to delete this data")){
